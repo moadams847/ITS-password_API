@@ -16,7 +16,7 @@ def password():
 
         passlen = int(request.form['password_length'])
         # print(passlen)
-        s="abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&-=+?"
+        s="abcdefghijklmnopqrstuvwxyz01234567890!@#$%&-=+?ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&-=+?"
         p = "".join(random.sample(s,passlen ))
         # print(p)
 
