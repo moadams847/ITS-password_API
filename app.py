@@ -15,12 +15,22 @@ def password():
     if request.method == 'POST':
 
         passlen = int(request.form['password_length'])
-        # print(passlen)
-        s="abcdefghijklmnopqrstuvwxyz01234567890!@#$%&-=+?ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&-=+?"
-        p = "".join(random.sample(s,passlen ))
+        if passlen <= 12:
+            # print(passlen)
+            s="abcdefghjkmnpqrstuvwxyz23456789!#$%&-=+?ABCDEFGHJKMNPQRSTUVWXYZ!#$%&-=+?"
+            p = "".join(random.sample(s,passlen ))
+            return render_template('home.html', gen_pas = f'Temporary ITS password generated:     {p}')
+
+
+        else:
+
+            s="abcdefghjkmnpqrstuvwxyz23456789ABCDEFGHJKMNPQRSTUVWXYZ"
+            p = "".join(random.sample(s,passlen ))
+            return render_template('home.html', gen_pas = f'Temporary ITS password generated:     {p}')
+
+
         # print(p)
 
-        return render_template('home.html', gen_pas = f'Temporary ITS password generated:     {p}')
 
     return render_template('home.html')
 
